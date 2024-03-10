@@ -65,3 +65,26 @@ Sometimes an agent can upset you. To wipe it out completely,
 ./delete_agent <your_agent_name> 
 ```
 
+## I implemented a Currency Conversion agent for this bonus question:
+This new currency conversion tool is using Fixer.io API to provide real-time currency conversion asked by the user.
+This gives real-time currency conversion from any currency to any currency.
+The user query gets the latest currency values from Fixer.io, so conversions are always in real-time.
+
+This is based on the `scholar` agent we have created in the pool. As before, we simply clone it:
+```
+./clone_agent scholar currency_conversion_agent
+```
+Once the currency_conversion_agent is cloned, make sure to make these changes in the agent.yaml file - 
+- model_name: gpt-3.5-turbo
+
+In Plugins add the below:
+- name: currency_conversion
+
+In target_tasks add the below:
+- currency conversion
+
+You can now run this agent via:
+```
+python assemble.py currency_conversion_agent
+```
+
