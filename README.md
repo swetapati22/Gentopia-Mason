@@ -1,6 +1,8 @@
 # Gentopia-Mason
 
-**IMPORTANT NOTICE: This code repository was adapted from [Gentopia.AI](https://github.com/Gentopia-AI) to support Mason Activities.** 
+**Gentopia-Mason is a framework designed for creating and managing LLM agents with different capabilities.** I am running this project and adding an additional functionality to it, specifically enhancing it with a **Currency Conversion Agent** that integrates real-time exchange rate retrieval using the Fixer.io API.
+
+**IMPORTANT NOTICE: This code repository was adapted from [Gentopia.AI](https://github.com/Gentopia-AI) to support Mason Activities.**
 
 Author: Ziyu Yao (ziyuyao@gmu.edu)
 Copyright and license should go to Gentopia.AI.
@@ -30,7 +32,6 @@ echo "OPENAI_API_KEY=<your_openai_api_key>" >> .env
 ```
 Now you are all set! Let's create your first Gentopia Agent.
 
-
 ## Quick Start: Clone a Vanilla LLM Agent
 GentPool has provided multiple template LLM agents. To get started, we will clone the "vanilla agent" from `GentPool/gentpool/pool/vanilla_template` with the following command:
 ```
@@ -58,33 +59,48 @@ The available functions to the scholar agent have been listed in its configurati
 
 Now, you are all set to query this scholar agent for the latest papers by certain authors, the summary of a certain paper, paper citations, etc.
 
-
 ## Remove an Agent
 Sometimes an agent can upset you. To wipe it out completely,
 ```
 ./delete_agent <your_agent_name> 
 ```
 
-## I implemented a Currency Conversion agent for this bonus question:
-This new currency conversion tool is using Fixer.io API to provide real-time currency conversion asked by the user.
-This gives real-time currency conversion from any currency to any currency.
-The user query gets the latest currency values from Fixer.io, so conversions are always in real-time.
+## **🚀 New Feature: Currency Conversion Agent**
+As an extension of this project, I have developed a **Currency Conversion Agent** that provides real-time currency conversion using the **Fixer.io API**. This agent allows users to convert from any currency to any other currency dynamically, leveraging the latest exchange rates.
 
-This is based on the `scholar` agent we have created in the pool. As before, we simply clone it:
+### **How It Works**
+- The agent retrieves real-time currency conversion values from **Fixer.io API**.
+- The user query triggers an API call to fetch the latest exchange rates.
+- The system ensures that conversions are always **up-to-date**.
+
+### **Setup for Currency Conversion Agent**
+This agent is based on the existing `scholar` agent template. To integrate it:
 ```
 ./clone_agent scholar currency_conversion_agent
 ```
-Once the currency_conversion_agent is cloned, make sure to make these changes in the agent.yaml file - 
-- model_name: gpt-3.5-turbo
+Once cloned, update the agent configuration in `agent.yaml` as follows:
 
-In Plugins add the below:
-- name: currency_conversion
+#### **Modify the following fields in `agent.yaml`:**
+- **Set the model**:
+  ```yaml
+  model_name: gpt-3.5-turbo
+  ```
+- **Add the Plugin**:
+  ```yaml
+  Plugins:
+    - name: currency_conversion
+  ```
+- **Define the target task**:
+  ```yaml
+  target_tasks:
+    - currency conversion
+  ```
 
-In target_tasks add the below:
-- currency conversion
-
-You can now run this agent via:
+### **Running the Currency Conversion Agent**
+To execute the agent, run:
 ```
 python assemble.py currency_conversion_agent
 ```
 
+With this setup, the agent efficiently provides real-time currency exchange rates and conversions on demand. 🎉
+This feature brings an **AI-powered currency exchange agent** to Gentopia, making it more **interactive and resourceful**. 🚀
