@@ -1,6 +1,6 @@
 # Gentopia-Mason
 
-**Gentopia-Mason is a framework designed for creating and managing LLM agents with different capabilities.** I am running this project and adding an additional functionality to it, specifically enhancing it with a **Currency Conversion Agent** that integrates real-time exchange rate retrieval using the Fixer.io API.
+**Gentopia-Mason is a framework designed for creating and managing LLM agents with different capabilities.** I am running this project and adding additional functionalities, specifically enhancing it with a **Currency Conversion Agent** that integrates real-time exchange rate retrieval using the Fixer.io API and a **PDF Reader Agent** that allows document reading from URL-based PDFs.
 
 **IMPORTANT NOTICE: This code repository was adapted from [Gentopia.AI](https://github.com/Gentopia-AI) to support Mason Activities.**
 
