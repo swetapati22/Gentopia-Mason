@@ -65,7 +65,7 @@ Sometimes an agent can upset you. To wipe it out completely,
 ./delete_agent <your_agent_name> 
 ```
 
-## **🚀 New Feature: Currency Conversion Agent**
+## **New Feature: Currency Conversion Agent**
 As an extension of this project, I have developed a **Currency Conversion Agent** that provides real-time currency conversion using the **Fixer.io API**. This agent allows users to convert from any currency to any other currency dynamically, leveraging the latest exchange rates.
 
 ### **How It Works**
@@ -102,5 +102,44 @@ To execute the agent, run:
 python assemble.py currency_conversion_agent
 ```
 
-With this setup, the agent efficiently provides real-time currency exchange rates and conversions on demand. 🎉
-This feature brings an **AI-powered currency exchange agent** to Gentopia, making it more **interactive and resourceful**. 🚀
+With this setup, the agent efficiently provides real-time currency exchange rates and conversions on demand.
+
+---
+
+## **New Feature: PDF Reader Agent**
+As an enhancement to **Gentopia-Mason**, I have developed a **PDF Reader Agent** that extracts and reads text from PDF documents available online.
+
+### **How It Works**
+- Accepts a **PDF URL** as input.
+- Downloads and extracts **text content** from the PDF file.
+- Returns a **readable output** for analysis.
+
+### **Setup for PDF Reader Agent**
+Clone the `scholar` agent template:
+```bash
+./clone_agent scholar pdf_reader_agent
+```
+Modify `agent.yaml` to include the new tool:
+```yaml
+Plugins:
+  - name: pdf_reader
+```
+```yaml
+target_tasks:
+  - pdf document reading
+```
+
+### **Running the PDF Reader Agent**
+Execute:
+```bash
+python assemble.py pdf_reader_agent
+```
+With this setup, the **PDF Reader Agent** can **fetch, process, and extract text from online PDFs**, making document analysis easier.
+
+---
+
+This project extends Gentopia with:
+**Currency Conversion Agent**: AI-driven **real-time currency conversion** using **Fixer.io API**.  
+**PDF Reader Agent**: Reads and extracts **text from online PDFs** for easier document analysis.
+
+This project extends **Gentopia** with **practical AI applications**, making it **smarter, more interactive, and highly resourceful**.
